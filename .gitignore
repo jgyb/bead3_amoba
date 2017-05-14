@@ -11,6 +11,10 @@
 *.o
 *.obj
 
+*.h
+graphics.hpp
+*.ttf
+
 # Precompiled Headers
 *.gch
 *.pch
