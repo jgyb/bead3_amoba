@@ -7,9 +7,7 @@
 
 #include "widget.hpp"
 #include "colors.hpp"
-#include "scrollbar.hpp"
 #include "statictext.hpp"
-#include "menubox.hpp"
 #include "pushbutton.hpp"
 #include "tictactoebox.hpp"
 

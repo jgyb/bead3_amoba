@@ -13,8 +13,7 @@ class GameMasterNew : public Window
 
         ///Jatek elemei
         PushButton* Button_exit;
-        PushButton* Button2;
-        TicTacToeBox* Box1;
+        StaticText* winnerText;
 
     protected:
         void gameCtr();
@@ -22,6 +21,8 @@ class GameMasterNew : public Window
     private:
 };
 
+void resetOnPush(int posX, int posY, char button, Widget* I);
 void exitOnPush(int posX, int posY, char button, Widget* I);
+
 
 #endif // GAMEMASTERNEW_HPP

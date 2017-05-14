@@ -16,10 +16,11 @@ class Widget
         bool event(genv::event &ev);
         bool switchStop;
         bool selected;
-        int player;
+
         virtual void draw() const = 0; // tiszta virtualis fuggveny, mivel az ososztaly egy peldanyat sem rajzoljuk ki
 
         bool hasAlreadyBeenPressed;
+        int player = 3;
 
         /// Eger es billentyuzet esemenyei
         virtual void onMouseDown(int m_posX, int m_posY, char m_button) = 0;
