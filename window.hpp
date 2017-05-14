@@ -1,0 +1,48 @@
+#ifndef WINDOW_HPP
+#define WINDOW_HPP
+
+#include "graphics.hpp"
+#include <vector>
+#include <fstream>
+
+#include "widget.hpp"
+#include "colors.hpp"
+#include "scrollbar.hpp"
+#include "statictext.hpp"
+#include "menubox.hpp"
+#include "pushbutton.hpp"
+#include "tictactoebox.hpp"
+
+extern int screenSizeX; //= 800;
+extern int screenSizeY; //= 600;
+extern const unsigned int t;
+
+class Window
+{
+    public:
+        Window(int sizeX0, int sizeY0);
+
+        void run_loop();
+        void stop();
+
+        void addWidget(Widget *anotherWidget);
+        void setShutDownByEscape(bool val);
+
+    protected:
+        bool shutDownByEscape;
+        bool shutDownByStop;
+
+        unsigned int index;
+        std::vector<Widget*> widgets;
+
+        void screenClear();
+        bool handleKeys(genv::event &ev);
+        void selectNext();
+        bool setSelection(int newSelection);
+
+
+
+    private:
+};
+
+#endif // WINDOW_HPP
