@@ -5,7 +5,7 @@
 
 enum boxStatus
 {
-    empty,
+    unused,
     cross,
     circle
 };
@@ -13,14 +13,14 @@ enum boxStatus
 class TicTacToeBox : public Widget
 {
     public:
-        boxStatus status;
+        boxStatus currentStatus;
 
         TicTacToeBox(int posX0, int posY0, unsigned int width0, unsigned int height0, std::function<void(int, int, char, Widget*)> func0);
         TicTacToeBox(int posX0, int posY0, unsigned int width0, unsigned int height0);
         void draw() const;
 
-        virtual void onMouseDown(int posX, int posY, char button);
-        virtual void onMouseUp(int posX, int posY, char button) {}
+        virtual void onMouseDown(int posX, int posY, char button) {}
+        virtual void onMouseUp(int posX, int posY, char button);
         virtual void onMouseMove(int posX, int posY) {}
         virtual void onKeyDown(char keyCode) {}
         virtual void onKeyUp(char keyCode) {}
@@ -28,8 +28,10 @@ class TicTacToeBox : public Widget
 
     protected:
 
+
+
     private:
-        const int boxWidth = 25, boxHeight = 25;
+        const int boxWidth = 10, boxHeight = 10;
         const int boxPosX = 2, boxPosY = 2;
 };
 

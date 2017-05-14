@@ -28,11 +28,14 @@ class Window
         void addWidget(Widget *anotherWidget);
         void setShutDownByEscape(bool val);
 
+        virtual void checkWinner(std::vector<Widget*> widgets0, int currentIndex) = 0;
+
     protected:
         bool shutDownByEscape;
         bool shutDownByStop;
 
         unsigned int index;
+        int currentPlayer=0;
         std::vector<Widget*> widgets;
 
         void screenClear();

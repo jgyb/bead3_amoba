@@ -4,12 +4,14 @@ TicTacToeBox::TicTacToeBox(int posX0, int posY0, unsigned int width0, unsigned i
 {
     currentStatus = unused;
     switchStop = true;
+    hasAlreadyBeenPressed = false;
 }
 
 TicTacToeBox::TicTacToeBox(int posX0, int posY0, unsigned int width0, unsigned int height0, std::function<void(int, int, char, Widget*)> func0) : Widget(posX0, posY0, width0, height0)
 {
     currentStatus = unused;
     switchStop = true;
+    hasAlreadyBeenPressed = false;
     eventOnMouseDown = func0;
 }
 
@@ -38,13 +40,34 @@ void TicTacToeBox::draw() const
 
     setColor(white);
     genv::gout
-        << genv::move_to(posX + boxPosX, posY + boxPosY)
-        << genv::box(boxWidth, boxHeight);
+            << genv::move_to(posX + boxPosX, posY + boxPosY)
+            << genv::box(boxWidth, boxHeight);
 
     drawBox(posX, posY, width, height, buttonClicked, white);
+
+    if(currentStatus == cross)
+    {
+        if(player==1){
+            setColor(red);
+        }
+        else{
+            setColor(blue);
+        }
+        genv::gout
+                << genv::move_to(posX + boxPosX + 1, posY + boxPosY + 1)
+                << genv::line(boxWidth - 2, boxHeight - 2);
+
+        genv::gout
+                << genv::move_to(posX + boxPosX + 1, posY + boxPosY + boxHeight - 2)
+                << genv::line(boxWidth - 2, -boxHeight + 2);
+    }
 }
 
-void TicTacToeBox::onMouseDown(int posX, int posY, char button)
+void TicTacToeBox::onMouseUp(int posX, int posY, char button)
 {
-
+    if(!hasAlreadyBeenPressed)
+    {
+        currentStatus = cross;
+        hasAlreadyBeenPressed = true;
+    }
 }

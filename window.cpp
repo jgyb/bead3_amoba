@@ -123,6 +123,14 @@ bool Window::setSelection(int newSelection)
     widgets[index]->selected = false;
     widgets[newSelection]->selected = true;
 
+
+    if(index!=newSelection && !widgets[newSelection]->hasAlreadyBeenPressed)
+    {
+        widgets[newSelection]->player = (currentPlayer==1?1:0);
+        currentPlayer=(currentPlayer==1?0:1);
+        checkWinner(widgets, newSelection);
+    }
+
     index = newSelection;
 
     return true;

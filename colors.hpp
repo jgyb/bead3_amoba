@@ -16,6 +16,8 @@ struct Colors
 
 const Colors black = Colors(0, 0, 0);
 const Colors white = Colors(255, 255, 255);
+const Colors red = Colors(255, 0, 0);
+const Colors blue = Colors(0, 0, 255);
 const Colors highlighted = Colors(11, 83, 198);
 const Colors nonHighlighted = Colors(175, 204, 255);
 const Colors background = Colors(68, 74, 84);
